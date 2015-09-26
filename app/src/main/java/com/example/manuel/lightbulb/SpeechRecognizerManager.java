@@ -59,6 +59,7 @@ public class SpeechRecognizerManager {
     protected Intent mSpeechRecognizerIntent;
     protected android.speech.SpeechRecognizer mGoogleSpeechRecognizer;
     private Context mContext;
+    private OnResultListener mOnResultListener;
 
 
     public SpeechRecognizerManager(Context context) {
@@ -192,6 +193,7 @@ public class SpeechRecognizerManager {
 
         @Override
         public void onResult(Hypothesis hypothesis) {
+
         }
 
 
@@ -271,8 +273,9 @@ public class SpeechRecognizerManager {
                             + " confidence:" + scores[i]);
 
                 }
-
-
+                if (mOnResultListener != null) {
+                    mOnResultListener.OnResult(heard);
+                }
                 //send list of words to activity
 
 
@@ -291,6 +294,9 @@ public class SpeechRecognizerManager {
 
     }
 
+    public void setOnResultListener(OnResultListener onResultListener){
+        mOnResultListener = onResultListener;
+    }
 
 
     public interface OnResultListener
