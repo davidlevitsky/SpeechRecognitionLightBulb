@@ -6,3 +6,8 @@ Simple application that utilizes speech recognition features to change appearanc
 
 Base code (not yet functional) was provided by CodePath in an Android Meetup in San Francisco. Few lines of code were added to make lightbulb change after recognizing key words.
 After initializing speech recognition manager by saying "ok light", user can say "turn blue", "turn pink", "hide", or "show".
+
+Technologies used:
+
+- Google Voice Recognition API
+- Pocket Sphinx for Android
